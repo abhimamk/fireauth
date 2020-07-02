@@ -68,7 +68,7 @@ export class AuthApiService {
   logout() {
     this.user.next(null);
     this.router.navigate(['/']);
-    localStorage.removeItem('UserData');
+    localStorage.removeItem('userData');
     if (this.tokenExpirationTimer) {
       clearTimeout(this.tokenExpirationTimer);
     }
@@ -83,7 +83,7 @@ export class AuthApiService {
       _tokenExpirationDate: string;
     } =
       // string converting object , using JSON parse
-      JSON.parse(localStorage.getItem('UserData'));
+      JSON.parse(localStorage.getItem('userData'));
     if (!userData) {
       return;
     }
